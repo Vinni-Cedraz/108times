@@ -10,6 +10,7 @@ class App:
         self.label.pack()
         pygame.mixer.init()
         self.sound = pygame.mixer.Sound('bell.wav')
+        self.sound.set_volume(0.3)
         self.ring_bell()
 
     def ring_bell(self):
