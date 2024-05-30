@@ -1,5 +1,5 @@
 import tkinter as tk
-import winsound
+import pygame
 
 
 class App:
@@ -8,11 +8,13 @@ class App:
         self.count = 0
         self.label = tk.Label(root, text="Bell will ring every 108 seconds")
         self.label.pack()
+        pygame.mixer.init()
+        self.sound = pygame.mixer.Sound('bell.wav')
         self.ring_bell()
 
     def ring_bell(self):
         if self.count < 108:
-            winsound.Beep(1000, 1000)  # Frequency 1000Hz, Duration 1 second
+            self.sound.play()
             self.count += 1
             self.root.after(
                 108000, self.ring_bell
